@@ -36,8 +36,24 @@ return [
     */
 
     'guards' => [
+        //Custom guards
+        'barangay' => [
+            'driver' => 'sanctum',
+            'provider' => 'barangays',
+        ],
+
+        'rhu' => [
+            'driver' => 'sanctum',
+            'provider' => 'rhus',
+        ],
+        // Default
         'web' => [
             'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'api' => [
+            'driver' => 'sanctum',
             'provider' => 'users',
         ],
     ],
@@ -60,6 +76,15 @@ return [
     */
 
     'providers' => [
+        'barangays' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Barangay::class,
+        ],
+
+        'rhus' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Rhu::class,
+        ],
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
