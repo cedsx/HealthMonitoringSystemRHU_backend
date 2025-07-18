@@ -21,5 +21,6 @@ class Barangay extends Authenticatable
         'username',
         'email',
         'password',
+        'email_verified_at',
     ];
 }
